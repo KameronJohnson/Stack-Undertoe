@@ -13,10 +13,21 @@
       <ul class="nav navbar-nav navbar-left">
         <li id="nav-header"><%= link_to "Home", questions_path %></li>
       </ul>
+
       <ul class="nav navbar-nav navbar pull-right">
         <li><%= link_to "New Question", new_question_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li> <%= link_to "Sign up", new_user_registration_path %> </li>
+          <li> <%= link_to "Sign in", new_user_session_path %> </li>
+        <% end %>
       </ul>
     </nav>
+
+    <% if user_signed_in? %>
+      <p class="right-align">Logged in as <%= current_user.email %></p>
+    <% end %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
