@@ -7,9 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<%= yield %>
+
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <ul class="nav navbar-nav navbar-left">
+        <li id="nav-header"><%= link_to "Home", questions_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar pull-right">
+        <li><%= link_to "New Question", new_question_path %></li>
+      </ul>
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>
