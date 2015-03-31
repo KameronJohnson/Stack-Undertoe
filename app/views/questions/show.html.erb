@@ -1,4 +1,10 @@
-<h2> Questions </h2>
+<div class="container">
 
-<h1><%= @question.title %></h1>
-<p><%= @question.query %></p>
+  <h1><%= @question.title %></h1>
+  <h6><%= @question.created_at.to_s(:long) %><h6>
+  <p><%= @question.query %></p>
+  <p><%= link_to "Edit", edit_question_path, id: "edit_question", remote: true %></p>
+  <p><%= link_to "Delete", question_path(@question),
+                                :data => { :confirm => "REALLY?!",
+                                  :method => 'delete' } %></p>
+</div>

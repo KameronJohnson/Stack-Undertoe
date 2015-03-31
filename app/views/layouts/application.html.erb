@@ -15,7 +15,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar pull-right">
-        <li><%= link_to "New Question", new_question_path, remote: true %></li>
+        <li><%= link_to "New Question", new_question_path, id:"#new_question", remote: true %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
